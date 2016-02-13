@@ -15,7 +15,7 @@ public class HackBU extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		batch2 = new SpriteBatch();
+		//batch2 = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 		background = new Texture("clouds2.jpg");
 	}
