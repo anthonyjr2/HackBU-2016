@@ -7,6 +7,7 @@ import com.hackbu.game.HackBU;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title = "test";
 		new LwjglApplication(new HackBU(), config);
 	}
 }
