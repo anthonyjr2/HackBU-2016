@@ -13,15 +13,18 @@ public class Game extends ApplicationAdapter {
 	Texture background;
 	Texture img;
 	OrthographicCamera camera;
-	
+    Texture playerImage;
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		//batch2 = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 		background = new Texture("clouds2.jpg");
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 600);
+
+        playerImage = new Texture("player.png");
+
 	}
 
 	@Override
@@ -30,9 +33,8 @@ public class Game extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, 10, 0);
-		batch.end();
-		batch2.begin();
-		batch2.draw(background,10,0);
-		batch2.end();
+		batch.draw(background, 10, 0);
+        batch.draw(playerImage,10, 0);
+        batch.end();
 	}
 }
