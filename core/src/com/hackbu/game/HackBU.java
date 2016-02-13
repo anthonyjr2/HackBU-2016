@@ -8,12 +8,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class HackBU extends ApplicationAdapter {
 	SpriteBatch batch;
+	SpriteBatch batch2;
 	Texture img;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+		batch2 = new SpriteBatch();
 	}
 
 	@Override
