@@ -17,7 +17,7 @@ public class HackBU extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		batch2 = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
-		//background = new Texture("clouds2.jpg");
+		background = new Texture("clouds2.jpg");
 	}
 
 	@Override
@@ -25,8 +25,8 @@ public class HackBU extends ApplicationAdapter {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		batch.draw(img, 0, 0);
-		//batch2.draw(background,0,0);
-		//batch.end();
+		batch.draw(img, 10, 0);
+		batch.draw(background,0,0);
+		batch.end();
 	}
 }
