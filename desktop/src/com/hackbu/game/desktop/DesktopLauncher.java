@@ -9,7 +9,7 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title = "test1";
         config.width = 800;
-        config.height = 480;
+        config.height = 600;
 		new LwjglApplication(new HackBU(), config);
 	}
 }
