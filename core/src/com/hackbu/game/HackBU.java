@@ -9,13 +9,15 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class HackBU extends ApplicationAdapter {
 	SpriteBatch batch;
 	SpriteBatch batch2;
+	Texture background;
 	Texture img;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
 		batch2 = new SpriteBatch();
+		img = new Texture("badlogic.jpg");
+		//background = new Texture("clouds2.jpg");
 	}
 
 	@Override
@@ -24,6 +26,7 @@ public class HackBU extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, 0, 0);
-		batch.end();
+		//batch2.draw(background,0,0);
+		//batch.end();
 	}
 }
