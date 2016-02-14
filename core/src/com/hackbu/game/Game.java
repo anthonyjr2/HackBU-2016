@@ -1,5 +1,6 @@
 package com.hackbu.game;
 
+import com.badlogic.ashley.core.*;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -39,6 +40,15 @@ public class Game extends ApplicationAdapter {
         player.y = 80;
         player.width = 64;
         player.height = 64;
+
+        Engine engine = new Engine();
+        Entity entity = new Entity();
+
+        entity.add(new PositionComponent());
+        entity.add(new VelocityComponent());
+
+
+        engine.addEntity(entity);
     }
 
     @Override
