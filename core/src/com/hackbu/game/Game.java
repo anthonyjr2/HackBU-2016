@@ -44,6 +44,7 @@ public class Game extends ApplicationAdapter {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+        background.setWrap(Texture.TextureWrap.Repeat, Texture.TextureWrap.Repeat);
         batch.draw(backgroundImage, background.x, background.y);
         batch.draw(playerImage, player.x, player.y);
         batch.end();
