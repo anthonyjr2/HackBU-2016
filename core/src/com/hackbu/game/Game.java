@@ -25,8 +25,8 @@ public class Game extends ApplicationAdapter {
         batch = new SpriteBatch();
         playerImage = new Texture("player.png");
         player = new Rectangle();
-        player.x = xRes/2;
-        player.y = 40;
+        player.x = xRes/2 - 64/2;
+        player.y = 80;
         player.width = 64;
         player.height = 64;
 
@@ -34,7 +34,7 @@ public class Game extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-        Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
