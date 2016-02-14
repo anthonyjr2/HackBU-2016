@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.graphics.Texture.TextureWrap;
 
 public class Game extends ApplicationAdapter {
 	private SpriteBatch batch;
@@ -18,6 +19,7 @@ public class Game extends ApplicationAdapter {
     private int xRes = 800;
     private int yRes = 600;
     private Rectangle background;
+    float backgroundXval =0;
 
 	@Override
 	public void create () {
@@ -25,6 +27,7 @@ public class Game extends ApplicationAdapter {
         background = new Rectangle();
         background.x = 0;
         background.y =0;
+        backgroundImage.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, xRes, yRes);
         batch = new SpriteBatch();
@@ -44,16 +47,16 @@ public class Game extends ApplicationAdapter {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-        background.setWrap(Texture.TextureWrap.Repeat, Texture.TextureWrap.Repeat);
-        batch.draw(backgroundImage, background.x, background.y);
+        batch.draw(backgroundImage, backgroundXval, background.y);
+        backgroundXval -=5;
         batch.draw(playerImage, player.x, player.y);
         batch.end();
 
-        int i = 0;
+      /*  int i = 0;
         while(i<10){
             background.x -= 10 * Gdx.graphics.getDeltaTime();
             i++;
-        }
+        }*/
 
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.x -= 200 * Gdx.graphics.getDeltaTime();
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.x += 200 * Gdx.graphics.getDeltaTime();
