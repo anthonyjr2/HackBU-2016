@@ -11,24 +11,24 @@ import com.badlogic.gdx.math.Rectangle;
 
 public class Game extends ApplicationAdapter {
 	private SpriteBatch batch;
-	Texture background;
+	Texture backgroundImage;
 	private OrthographicCamera camera;
     private Texture playerImage;
-    private Texture back1;
-    private Texture back2;
     private Rectangle player;
     private int xRes = 800;
     private int yRes = 600;
+    private Rectangle background;
 
 	@Override
 	public void create () {
-		//background = new Texture("clouds2.jpg");
+		backgroundImage = new Texture("gamelevel1base.png");
+        background = new Rectangle();
+        background.x = 0;
+        background.y =0;
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, xRes, yRes);
         batch = new SpriteBatch();
         playerImage = new Texture("player.png");
-        back1 = new Texture("gamelevel1base.png");
-        back2 = new Texture("gamelevel1base 2.png");
         player = new Rectangle();
         player.x = xRes/2 - 64/2;
         player.y = 80;
@@ -44,17 +44,18 @@ public class Game extends ApplicationAdapter {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+        batch.draw(backgroundImage, background.x, background.y);
         batch.draw(playerImage, player.x, player.y);
         batch.end();
 
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.x -= 200 * Gdx.graphics.getDeltaTime();
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.x += 200 * Gdx.graphics.getDeltaTime();
-        if(Gdx.input.isKeyPressed(Input.Keys.X)){
-            batch.begin();
-            batch.draw(back1,0,0);
-            batch.end();
+        int i = 0;
+        while(i<10){
+            background.x -= 10 * Gdx.graphics.getDeltaTime();
+            i++;
         }
 
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.x -= 200 * Gdx.graphics.getDeltaTime();
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.x += 200 * Gdx.graphics.getDeltaTime();
 
         if(player.x < 0) player.x = 0;
         if(player.x > 800 - 64) player.x = 800 - 64;
