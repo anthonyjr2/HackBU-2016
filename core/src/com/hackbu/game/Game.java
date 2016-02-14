@@ -11,16 +11,20 @@ import com.badlogic.gdx.math.Rectangle;
 
 public class Game extends ApplicationAdapter {
 	private SpriteBatch batch;
-	Texture background;
+	Texture backgroundImage;
 	private OrthographicCamera camera;
     private Texture playerImage;
     private Rectangle player;
     private int xRes = 800;
     private int yRes = 600;
+    private Rectangle background;
 
 	@Override
 	public void create () {
-		//background = new Texture("clouds2.jpg");
+		backgroundImage = new Texture("gamelevel1base.png");
+        background = new Rectangle();
+        background.x = 0;
+        background.y =0;
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, xRes, yRes);
         batch = new SpriteBatch();
@@ -40,8 +44,15 @@ public class Game extends ApplicationAdapter {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+        batch.draw(backgroundImage, background.x, background.y);
         batch.draw(playerImage, player.x, player.y);
         batch.end();
+
+        int i = 0;
+        while(i<10){
+            background.x -= 10 * Gdx.graphics.getDeltaTime();
+            i++;
+        }
 
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.x -= 200 * Gdx.graphics.getDeltaTime();
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.x += 200 * Gdx.graphics.getDeltaTime();
