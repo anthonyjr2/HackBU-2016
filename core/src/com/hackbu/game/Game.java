@@ -14,8 +14,8 @@ public class Game extends ApplicationAdapter {
 	private OrthographicCamera camera;
     private Texture playerImage;
     private Rectangle player;
-    private int xRes = 1280;
-    private int yRes = 720;
+    private int xRes = 800;
+    private int yRes = 600;
 
 	@Override
 	public void create () {
