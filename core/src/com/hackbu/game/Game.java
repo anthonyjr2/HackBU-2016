@@ -25,7 +25,6 @@ public class Game extends ApplicationAdapter {
 		bgImage = new Texture("fullBackground.png");
         bgImage.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
 
-
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, xRes, yRes);
         batch = new SpriteBatch();
@@ -48,7 +47,7 @@ public class Game extends ApplicationAdapter {
 		batch.begin();
 
         batch.draw(bgImage, 0, 0, speed, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        speed +=5;
+        speed +=8;
 
         batch.draw(playerImage, player.x, player.y);
         batch.end();
