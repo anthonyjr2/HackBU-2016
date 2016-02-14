@@ -14,6 +14,8 @@ public class Game extends ApplicationAdapter {
 	Texture background;
 	private OrthographicCamera camera;
     private Texture playerImage;
+    private Texture back1;
+    private Texture back2;
     private Rectangle player;
     private int xRes = 800;
     private int yRes = 600;
@@ -25,6 +27,8 @@ public class Game extends ApplicationAdapter {
 		camera.setToOrtho(false, xRes, yRes);
         batch = new SpriteBatch();
         playerImage = new Texture("player.png");
+        back1 = new Texture("gamelevel1base.png");
+        back2 = new Texture("gamelevel1base 2.png");
         player = new Rectangle();
         player.x = xRes/2 - 64/2;
         player.y = 80;
@@ -45,6 +49,12 @@ public class Game extends ApplicationAdapter {
 
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.x -= 200 * Gdx.graphics.getDeltaTime();
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.x += 200 * Gdx.graphics.getDeltaTime();
+        if(Gdx.input.isKeyPressed(Input.Keys.X)){
+            batch.begin();
+            batch.draw(back1,0,0);
+            batch.end();
+        }
+
 
         if(player.x < 0) player.x = 0;
         if(player.x > 800 - 64) player.x = 800 - 64;
