@@ -54,7 +54,7 @@ public class Game extends ApplicationAdapter {
             batch.draw(back1,0,0);
             batch.end();
         }
-
+        //change
 
         if(player.x < 0) player.x = 0;
         if(player.x > 800 - 64) player.x = 800 - 64;
