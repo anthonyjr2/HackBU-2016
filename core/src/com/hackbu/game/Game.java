@@ -2,6 +2,7 @@ package com.hackbu.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ai.btree.decorator.Repeat;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -21,7 +22,8 @@ public class Game extends ApplicationAdapter {
 
 	@Override
 	public void create () {
-		bgImage = new Texture("gamelevel1base.png");
+		bgImage = new Texture("fullBackground.png");
+        bgImage.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
 
 
 		camera = new OrthographicCamera();
