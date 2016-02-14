@@ -2,6 +2,7 @@ package com.hackbu.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -41,5 +42,11 @@ public class Game extends ApplicationAdapter {
 		batch.begin();
         batch.draw(playerImage, player.x, player.y);
         batch.end();
+
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) player.x -= 200 * Gdx.graphics.getDeltaTime();
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) player.x += 200 * Gdx.graphics.getDeltaTime();
+
+        if(player.x < 0) player.x = 0;
+        if(player.x > 800 - 64) player.x = 800 - 64;
 	}
 }
